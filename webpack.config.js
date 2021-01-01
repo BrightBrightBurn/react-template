@@ -14,17 +14,6 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(png|jpe?g|gif|svg|ttf|xlsx)$/,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: '[path][name].[ext]',
-                        },
-                    },
-                ],
-            },
-            {
                 test: /\.(ts|tsx|js|jsx)$/,
                 exclude: /node_modules/,
                 use: {
@@ -33,31 +22,6 @@ module.exports = {
                         presets: ['@babel/preset-env', '@babel/preset-typescript', '@babel/preset-react']
                     }
                 },
-            },
-            {
-                test: /\.html$/,
-                use: [
-                    {
-                        loader: 'html-loader',
-                    },
-                ],
-            },
-            {
-                test: /\.(less|css)$/,
-                use: [
-                    {
-                        loader: 'style-loader',
-                    },
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            modules: true,
-                        }
-                    },
-                    {
-                        loader: 'less-loader',
-                    }
-                ]
             },
         ],
     },
@@ -79,7 +43,7 @@ module.exports = {
     },
     devtool: isDev ? 'source-map' : false,
     resolve: {
-        extensions: ['.jsx', '.js', '.css', '.tsx', '.ts', '.less', '.json'],
+        extensions: ['.jsx', '.js', '.tsx', '.ts', '.json'],
         alias: {
             'react-dom': '@hot-loader/react-dom',
         },
