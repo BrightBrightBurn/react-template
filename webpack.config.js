@@ -5,6 +5,21 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const isProduction = process.env.NODE_ENV === 'production ';
 const isDev = !isProduction;
 
+const getJsLoaders = (isDevMode) => {
+    const loaders = [{
+        loader: 'babel-loader',
+        options: {
+            presets: ['@babel/preset-env', '@babel/preset-typescript', '@babel/preset-react']
+        }
+    }]
+
+    if (isDevMode) {
+        loaders.push({loader: 'eslint-loader'})
+    }
+
+    return loaders
+}
+
 module.exports = {
     entry: './src/index.tsx',
     output: {
@@ -16,12 +31,7 @@ module.exports = {
             {
                 test: /\.(ts|tsx|js|jsx)$/,
                 exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/preset-env', '@babel/preset-typescript', '@babel/preset-react']
-                    }
-                },
+                use:getJsLoaders(isDev)
             },
         ],
     },
