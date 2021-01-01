@@ -1,39 +1,47 @@
 const path = require('path');
 
-const htmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production ';
 const isDev = !isProduction;
 
-const tsLoaders = () => {
-    const loaders = [
-        {
-            loader: 'babel-loader',
-            options: {
-                presets: ['@babel/preset-env', '@babel/preset-typescript', '@babel/preset-react']
-            }
-        },
-    ];
-
-    if (isDev) {
-        loaders.push({
-            options: {
-                eslintPath: require.resolve('eslint'),
-            },
-            loader: require.resolve('eslint-loader'),
-        });
-    }
-    return loaders;
-};
-
 module.exports = {
-    entry: ['@babel/polyfill', path.resolve(__dirname, 'src/index.tsx')],
+    entry: './src/index.tsx',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
     },
     module: {
         rules: [
+            {
+                test: /\.(png|jpe?g|gif|svg|ttf|xlsx)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[path][name].[ext]',
+                        },
+                    },
+                ],
+            },
+            {
+                test: /\.(ts|tsx|js|jsx)$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env', '@babel/preset-typescript', '@babel/preset-react']
+                    }
+                },
+            },
+            {
+                test: /\.html$/,
+                use: [
+                    {
+                        loader: 'html-loader',
+                    },
+                ],
+            },
             {
                 test: /\.(less|css)$/,
                 use: [
@@ -48,23 +56,15 @@ module.exports = {
                     },
                     {
                         loader: 'less-loader',
-                        options: {
-                            modules: true
-                        }
                     }
-                ],
-            },
-            {
-                test: /\.(js|jsx|ts|tsx)$/,
-                exclude: /node_modules/,
-                use: tsLoaders()
+                ]
             },
         ],
     },
     plugins: [
-        new htmlWebpackPlugin({
-            filename: 'index.html',
-            title: 'React frontend template',
+        new HtmlWebPackPlugin({
+            template: './src/index.html',
+            filename: './index.html',
             minify: {
                 collapseWhitespace: isProduction
             }

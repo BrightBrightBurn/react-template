@@ -19,11 +19,11 @@
     "allowJs": false
   },
   "include": [
+    "./src/types/**.d.ts",
     "**/*"
   ],
   "exclude": [
     "node_modules",
     "**/*.spec.ts",
-    "**/*.d.ts"
   ]
 }
