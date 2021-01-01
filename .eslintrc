@@ -16,7 +16,7 @@
   "rules": {
     "eqeqeq": "error",
     "quotes": ["error", "single"],
-    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-unused-vars": "warn",
     "@typescript-eslint/prefer-includes": "error",
     "dot-notation": "error",
     "curly": ["error", "multi-line"],
@@ -24,6 +24,14 @@
     "no-redeclare": "error",
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
-    "jsx-quotes": ["error", "prefer-single"]
+    "jsx-quotes": ["error", "prefer-single"],
+    "no-else-return": "error",
+    "comma-dangle": ["error", "never"],
+    "space-in-parens": ["error", "never"],
+    "spaced-comment": ["error", "always"],
+    "prefer-const": "error",
+    "no-unneeded-ternary": "error",
+    "prefer-arrow-callback": "error",
+    "arrow-body-style": "error"
   }
 }
