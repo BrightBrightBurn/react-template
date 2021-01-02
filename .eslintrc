@@ -16,14 +16,10 @@
   "rules": {
     "eqeqeq": "error",
     "quotes": ["error", "single"],
-    "@typescript-eslint/no-unused-vars": "warn",
-    "@typescript-eslint/prefer-includes": "error",
     "dot-notation": "error",
     "curly": ["error", "multi-line"],
     "no-multi-spaces": "error",
     "no-redeclare": "error",
-    "react/jsx-uses-react": "error",
-    "react/jsx-uses-vars": "error",
     "jsx-quotes": ["error", "prefer-single"],
     "no-else-return": "error",
     "comma-dangle": ["error", "never"],
@@ -34,6 +30,19 @@
     "prefer-arrow-callback": "error",
     "arrow-body-style": "warn",
     "semi": ["error", "never"],
-    "comma-spacing": "error"
+    "comma-spacing": "error",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "@typescript-eslint/prefer-includes": "error",
+    "@typescript-eslint/no-explicit-any": "error",
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "react/jsx-boolean-value": "error",
+    "react/jsx-props-no-multi-spaces": "error",
+    "react/no-unused-prop-types": "warn",
+    "react/no-unused-state": "warn",
+    "react/no-render-return-value": "error",
+    "react/prefer-es6-class": "error",
+    "react/jsx-wrap-multilines": "error",
+    "react/self-closing-comp": "error"
   }
 }
