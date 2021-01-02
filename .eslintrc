@@ -32,6 +32,8 @@
     "prefer-const": "error",
     "no-unneeded-ternary": "error",
     "prefer-arrow-callback": "error",
-    "arrow-body-style": "error"
+    "arrow-body-style": "warn",
+    "semi": ["error", "never"],
+    "comma-spacing": "error"
   }
 }
