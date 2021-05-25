@@ -11,7 +11,8 @@
   },
   "plugins": [
     "@typescript-eslint",
-    "react"
+    "react",
+    "import"
   ],
   "rules": {
     "object-curly-spacing": ["error", "always"],
@@ -44,6 +45,7 @@
     "react/no-render-return-value": "error",
     "react/prefer-es6-class": "error",
     "react/jsx-wrap-multilines": "error",
-    "react/self-closing-comp": "error"
+    "react/self-closing-comp": "error",
+    "import/no-default-export": "error"
   }
 }
